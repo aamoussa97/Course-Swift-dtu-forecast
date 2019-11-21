@@ -10,15 +10,26 @@ import SwiftUI
 
 struct CitySettingsView: View {
     @Binding var showing: Bool
+    //@ObservedObject var viewModel: WeatherModel
     
     var body: some View {
-        Button(action: {
-            self.showing = false
-        }) {
-            Text("Change city")
+        NavigationView {
+            List(cityData) { city in
+                CityRow(city: city)
+            }
+            .navigationBarTitle("City")
         }
     }
 }
+
+/*
+func refreshChosenCity(chosenCity: String, viewModel: WeatherModel) {
+    //viewModel.refreshWeather(cityName: chosenCity)
+    //WeatherOverviewViewModel.refreshWeather(chosenCity)
+    //viewModel.refreshWeather(cityName: chosenCity)
+    //WeatherOverviewView(viewModel: DummyWeatherOverviewViewModel())
+}
+*/
 
 struct CitySettingsView_Previews: PreviewProvider {
     @State static var showing = true
