@@ -14,9 +14,17 @@ struct CitySettingsView: View {
     
     var body: some View {
         NavigationView {
+        
+            List(cityData) { city in
+                NavigationLink(destination: Text("City")) {//CityDetail(city: city)) {
+                    CityRow(city: city)
+                }
+            }
+           
+            /*
             List(cityData) { city in
                 CityRow(city: city)
-            }
+            }*/
             .navigationBarTitle("City")
         }
     }
