@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct City: Hashable, Codable, Identifiable {
-    var id = Int
+    var id: Int
     let name: String
     let country: String
 }
