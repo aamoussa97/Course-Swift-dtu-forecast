@@ -13,6 +13,8 @@ private let paddingValue: CGFloat = 18.0
 struct WeatherOverviewView<Model>: View where Model: WeatherModel {
     @ObservedObject var viewModel: Model
     @State private var showingSettings = false
+    
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
             
     var body: some View {
         NavigationView {
@@ -26,6 +28,10 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                     viewModel.currentWeatherValues.map {
                         WeatherCurrentView(values: $0)
                             .padding([.leading, .trailing], paddingValue)
+                    }
+                    .onReceive(timer) { _ in
+                        self.viewModel.refreshWeather(cityName: "odense")
+                        self.viewModel.cityName = "odense"
                     }
                     
                     WeatherHourlyForecastView(hourlyForcasts: viewModel.hourlyForecasts)
