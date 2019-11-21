@@ -66,7 +66,7 @@ extension OpenWeather.CurrentWeather {
                 formattedValue: formatterDate.string(from: system.sunrise),
                 additionalValue: nil,
                 color: Color(hex: "e64d00"),
-                icon: "sun.max.fill"
+                icon: "sunrise.fill"
             ),
             WeatherProperty(
                 id: .sunset,
@@ -74,7 +74,7 @@ extension OpenWeather.CurrentWeather {
                 formattedValue: formatterDate.string(from: system.sunset),
                 additionalValue: nil,
                 color: Color(hex: "e69900"),
-                icon: "sun.max"
+                icon: "sunset.fill"
             ),
             WeatherProperty(
                 id: .wind,
