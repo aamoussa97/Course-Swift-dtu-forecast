@@ -42,7 +42,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
             }
             .navigationBarTitle(viewModel.cityName.capitalized)
             
-            .navigationBarItems(trailing: HStack {
+            .navigationBarItems(trailing: HStack(spacing: 30) {
                 Button(action: {
                     self.viewModel.refreshWeather(cityName: "odense")
                     self.viewModel.cityName = "odense"
