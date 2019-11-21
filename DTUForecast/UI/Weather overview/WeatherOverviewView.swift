@@ -53,11 +53,11 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                     self.viewModel.refreshWeather(cityName: "odense")
                     self.viewModel.cityName = "odense"
                     
-                }, label: { Image(systemName: "arrow.clockwise").foregroundColor(Color(.label))} )
+                }, label: { Image(systemName: "arrow.clockwise.circle.fill").imageScale(.large).foregroundColor(Color(.label))} )
                 Button(action: {
                     self.showingSettings.toggle()
                     
-                }, label: { Image(systemName: "square.grid.2x2.fill").foregroundColor(Color(.label))} )
+                }, label: { Image(systemName: "location.circle.fill").imageScale(.large).foregroundColor(Color(.label))} )
             })
             
             }.sheet(isPresented: $showingSettings) {
