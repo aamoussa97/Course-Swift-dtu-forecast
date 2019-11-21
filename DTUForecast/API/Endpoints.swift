@@ -9,7 +9,7 @@
 import Foundation
 
 struct AppId {
-    let value: String = "" // Add API key here
+    let value: String = "0d287620224a97cea4fc954442e615d4" // Add API key here
 }
 
 private let baseurl = URL(string: "https://api.openweathermap.org/data/2.5/")!
