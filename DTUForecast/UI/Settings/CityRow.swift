@@ -15,6 +15,7 @@ struct CityRow: View {
     var body: some View {
         HStack {
             Text("\(city.name), \(city.country)")
+            Spacer()
         }
     }
 }
