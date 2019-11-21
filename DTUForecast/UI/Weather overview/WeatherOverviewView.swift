@@ -41,17 +41,25 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                 }
             }
             .navigationBarTitle(viewModel.cityName.capitalized)
-            .navigationBarItems(trailing: Button(action: {
-                self.showingSettings.toggle()
-            }) {
-                Image(systemName: "square.grid.2x2.fill")
-                    .foregroundColor(Color(.label))
+            
+            .navigationBarItems(trailing: HStack {
+                Button(action: {
+                    self.viewModel.refreshWeather(cityName: "odense")
+                    self.viewModel.cityName = "odense"
+                    
+                }, label: { Image(systemName: "arrow.clockwise").foregroundColor(Color(.label))} )
+                Button(action: {
+                    self.showingSettings.toggle()
+                    
+                }, label: { Image(systemName: "square.grid.2x2.fill").foregroundColor(Color(.label))} )
+            })
+            
             }.sheet(isPresented: $showingSettings) {
                 CitySettingsView(showing: self.$showingSettings)
-            })
+            }
         }
     }
-}
+
 
 struct WeatherOverviewView_Previews: PreviewProvider {
     static var previews: some View {
