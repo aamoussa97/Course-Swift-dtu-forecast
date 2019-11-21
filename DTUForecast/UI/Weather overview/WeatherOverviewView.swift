@@ -45,7 +45,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                 self.showingSettings.toggle()
             }) {
                 Image(systemName: "square.grid.2x2.fill")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(.label))
             }.sheet(isPresented: $showingSettings) {
                 CitySettingsView(showing: self.$showingSettings)
             })

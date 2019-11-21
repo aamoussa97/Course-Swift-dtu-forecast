@@ -23,14 +23,14 @@ struct WeatherHourForecastView: View {
         VStack {
             Text(forecast.isNow ? "Now" : forecast.time)
                 .padding(5)
-                .background(forecast.isNow ? Color.black : Color.clear)
-                .foregroundColor(forecast.isNow ? Color.white : Color.black)
+                .background(forecast.isNow ? Color(.label) : Color(.clear))
+                .foregroundColor(forecast.isNow ? Color(.systemBackground) : Color(.label))
                 .cornerRadius(20)
             Image(systemName: forecast.icon)
             Text(forecast.temperature.degreesString)
                 .bold()
         }
-        .foregroundColor(forecast.isNow ? .black : .gray)
+        .foregroundColor(forecast.isNow ? Color(.label) : Color(.secondaryLabel))
     }
 }
 
