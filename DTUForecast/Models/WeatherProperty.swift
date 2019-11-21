@@ -14,6 +14,8 @@ enum WeatherPropertyIdentifier: Int {
     case windDirection
     case humidity
     case pressure
+    case sunrise
+    case sunset
     case temperature
     case maxTemperature
     case minTemperature

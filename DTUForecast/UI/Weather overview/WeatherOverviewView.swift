@@ -26,7 +26,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                     viewModel.currentWeatherValues.map {
                         WeatherCurrentView(values: $0)
                             .padding([.leading, .trailing], paddingValue)
-                    }                    
+                    }
                     
                     WeatherHourlyForecastView(hourlyForcasts: viewModel.hourlyForecasts)
                     

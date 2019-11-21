@@ -44,6 +44,9 @@ extension OpenWeather.CurrentWeather {
 
 extension OpenWeather.CurrentWeather {
     func asProperties() -> [WeatherProperty] {
+        let formatterDate = DateFormatter()
+        formatterDate.timeStyle = .short
+        
         let formatter = MeasurementFormatter()
         formatter.unitStyle = .short
         formatter.numberFormatter.maximumFractionDigits = 2
@@ -57,6 +60,22 @@ extension OpenWeather.CurrentWeather {
         }()
         
         return [
+            WeatherProperty(
+                id: .sunrise,
+                name: "Sunrise",
+                formattedValue: formatterDate.string(from: system.sunrise),
+                additionalValue: nil,
+                color: Color(hex: "e64d00"),
+                icon: "gauge"
+            ),
+            WeatherProperty(
+                id: .sunset,
+                name: "Sunset",
+                formattedValue: formatterDate.string(from: system.sunset),
+                additionalValue: nil,
+                color: Color(hex: "e69900"),
+                icon: "gauge"
+            ),
             WeatherProperty(
                 id: .wind,
                 name: "Wind",
@@ -88,7 +107,7 @@ extension OpenWeather.CurrentWeather {
                 additionalValue: nil,
                 color: Color(hex: "4ab7e6"),
                 icon: "gauge"
-            )            
+            ) ,
         ]
     }
 }

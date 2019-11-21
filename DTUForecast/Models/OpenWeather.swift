@@ -59,6 +59,22 @@ extension OpenWeather {
             humidity = try container.decode(Int.self, forKey: .humidity)
         }
     }
+    
+    struct System: Decodable {
+        /// Country code (GB, JP etc.)
+        let country: String
+        /// Sunrise time, unix, UTC
+        let sunrise: Date
+        /// Sunset time, unix, UTC
+        let sunset: Date
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            country = try container.decode(String.self, forKey: .country)
+            sunrise = try Date(timeIntervalSince1970: container.decode(Double.self, forKey: .sunrise))
+            sunset = try Date(timeIntervalSince1970: container.decode(Double.self, forKey: .sunset))
+        }
+    }
 }
 
 
@@ -69,6 +85,14 @@ extension OpenWeather.Main {
         case humidity
         case temperatureMin = "temp_min"
         case temperatureMax = "temp_max"
+    }
+}
+
+extension OpenWeather.System {
+    enum CodingKeys: String, CodingKey {
+        case country = "country"
+        case sunrise = "sunrise"
+        case sunset = "sunset"
     }
 }
 
@@ -98,14 +122,5 @@ extension OpenWeather {
     struct Clouds: Decodable {
         /// Cloudiness, %
         let all: Int
-    }
-    
-    struct System: Decodable {
-        /// Country code (GB, JP etc.)
-        let country: String
-        /// Sunrise time, unix, UTC
-        let sunrise: Date
-        /// Sunset time, unix, UTC
-        let sunset: Date
     }
 }
