@@ -61,7 +61,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
             })
             
             }.sheet(isPresented: $showingSettings) {
-                CitySettingsView(showing: self.$showingSettings)
+                CitySettingsView(showing: self.$showingSettings, cityName: self.$viewModel.cityName)
             }
         }
     }
