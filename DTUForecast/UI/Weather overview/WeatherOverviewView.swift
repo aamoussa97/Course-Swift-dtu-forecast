@@ -15,7 +15,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
     @State private var showingSettings = false
     
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
-            
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -46,7 +46,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                 }
             }
             .navigationBarTitle(viewModel.cityName.capitalized)
-            
+                
             .navigationBarItems(trailing: HStack(spacing: 30) {
                 Button(action: {
                     self.viewModel.cityName = self.$viewModel.cityName.wrappedValue
@@ -57,12 +57,11 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                 }, label: { Image(systemName: "location.circle.fill").imageScale(.large).foregroundColor(Color(.label))} )
             })
             
-            }.sheet(isPresented: $showingSettings) {
-                CitySettingsView(showing: self.$showingSettings, cityName: self.$viewModel.cityName)
-            }
+        }.sheet(isPresented: $showingSettings) {
+            CitySettingsView(showing: self.$showingSettings, cityName: self.$viewModel.cityName)
         }
     }
-
+}
 
 struct WeatherOverviewView_Previews: PreviewProvider {
     static var previews: some View {

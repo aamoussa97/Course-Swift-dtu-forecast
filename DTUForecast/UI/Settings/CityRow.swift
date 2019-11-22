@@ -11,7 +11,7 @@ import SwiftUI
 
 struct CityRow: View {
     var city: City
-
+    
     var body: some View {
         HStack {
             Text("\(city.name), \(city.country)")
