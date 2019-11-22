@@ -30,8 +30,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
                             .padding([.leading, .trailing], paddingValue)
                     }
                     .onReceive(timer) { _ in
-                        self.viewModel.refreshWeather(cityName: "odense")
-                        self.viewModel.cityName = "odense"
+                        self.viewModel.cityName = self.$viewModel.cityName.wrappedValue
                     }
                     
                     WeatherHourlyForecastView(hourlyForcasts: viewModel.hourlyForecasts)
@@ -50,9 +49,7 @@ struct WeatherOverviewView<Model>: View where Model: WeatherModel {
             
             .navigationBarItems(trailing: HStack(spacing: 30) {
                 Button(action: {
-                    self.viewModel.refreshWeather(cityName: "odense")
-                    self.viewModel.cityName = "odense"
-                    
+                    self.viewModel.cityName = self.$viewModel.cityName.wrappedValue
                 }, label: { Image(systemName: "arrow.clockwise.circle.fill").imageScale(.large).foregroundColor(Color(.label))} )
                 Button(action: {
                     self.showingSettings.toggle()
