@@ -10,38 +10,34 @@ import SwiftUI
 
 struct CitySettingsView: View {
     @Binding var showing: Bool
-    //@ObservedObject var viewModel: WeatherModel
+    @Binding var cityName: String
     
     var body: some View {
         NavigationView {
         
             List(cityData) { city in
-                NavigationLink(destination: Text("City")) {//CityDetail(city: city)) {
-                    CityRow(city: city)
+                //CityRow(city: city)
+                
+                HStack {
+                    Button(action: {
+                        self.cityName = city.name.lowercased()
+                        self.showing = false
+                    }, label: {
+                        Text("\(city.name), \(city.country)")
+                    })
+                    Spacer()
                 }
             }
-           
-            /*
-            List(cityData) { city in
-                CityRow(city: city)
-            }*/
             .navigationBarTitle("City")
         }
     }
 }
 
-/*
-func refreshChosenCity(chosenCity: String, viewModel: WeatherModel) {
-    //viewModel.refreshWeather(cityName: chosenCity)
-    //WeatherOverviewViewModel.refreshWeather(chosenCity)
-    //viewModel.refreshWeather(cityName: chosenCity)
-    //WeatherOverviewView(viewModel: DummyWeatherOverviewViewModel())
-}
-*/
-
 struct CitySettingsView_Previews: PreviewProvider {
     @State static var showing = true
+    @State static var cityname = "Copenhagen"
+    
     static var previews: some View {
-        CitySettingsView(showing: $showing)
+        CitySettingsView(showing: $showing, cityName: $cityname)
     }
 }
