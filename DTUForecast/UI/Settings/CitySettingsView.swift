@@ -14,13 +14,13 @@ struct CitySettingsView: View {
     
     var body: some View {
         NavigationView {
-        
+            
             List(cityData) { city in
                 //CityRow(city: city)
                 
                 HStack {
                     Button(action: {
-                        self.cityName = city.name.lowercased()
+                        self.cityName = city.name
                         self.showing = false
                     }, label: {
                         Text("\(city.name), \(city.country)")
