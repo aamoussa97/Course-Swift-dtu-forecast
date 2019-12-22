@@ -12,14 +12,8 @@ Following exercises hasn't been solved:
 - [ ] Loading state
 
 ## Screenshots
-<div>
-<img src="/Screenshots/Screenshot_1.png?raw=true" height="500" width="250"/>
-</div>
-
-<div>
-<img src="/Screenshots/Screenshot_2.png?raw=true" height="500" width="250"/>
-</div>
-
-<div>
-<img src="/Screenshots/Screenshot_3.png?raw=true" height="500" width="250"/>
-</div>
+<p float="left" align="middle">
+  <img src="Screenshots/Screenshot_1.png?raw=true" width="250" />
+  <img src="Screenshots/Screenshot_2.png?raw=true" width="250" /> 
+  <img src="Screenshots/Screenshot_3.png?raw=true" width="250" />
+</p>
