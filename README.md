@@ -1,10 +1,9 @@
 # Course-Swift-dtu-forecast
-DTU-Forecast SwiftUI exercise in Course Swift - Lesson 11 in 62417 - Mobil applikationsudvikling med Swift E19.
-
+DTU-Forecast SwiftUI exercise from guest lecture by Shape A/S, in course [62417 Mobile Application Development with Swift](https://kurser.dtu.dk/course/62417) lesson 11.
 
 ## Exercises
 Following exercises has been solved:
-- [x] Select other cities
+- [x] Select other cities (Loaded via JSON sourced from OpenWeatherMap)
 - [x] Refresh weather periodically
 - [x] Properly support dark mode
 - [x] Show sunrise/sunset
